@@ -18,15 +18,38 @@ public class MyLinkedList {
         count++;
     }
 
+    public void add(int cell, int i) {
+        if (cell > count-1) {
+            System.out.println("Заданый номер ячейки превышает количество имеющихся элементов");
+            return;
+        }
+        MyNode l = last;
+        for (int j = count-1; j > 0 ; j--) {
+
+            if (j == cell){
+                //***************************************
+
+
+                //***************************************
+            }
+
+            MyNode predNod = l.prev;
+
+            if (predNod != null) l = predNod;
+
+        }
+
+    }
+
     public void print(){
 
-
+        MyNode l = last;
         for (int i = 0; i < count; i++) {
 
-                MyNode predNod = last.prev;
-                MyNode nextNod = last.next;
+                MyNode predNod = l.prev;
+                MyNode nextNod = l.next;
 
-            int item = last.item;
+            int item = l.item;
             if (predNod != null) System.out.print("[" +  predNod.item + "] ");
             else System.out.print("[null] ");
 
@@ -36,7 +59,7 @@ public class MyLinkedList {
 
             System.out.println();
 
-            if (predNod != null) last = predNod;
+            if (predNod != null) l = predNod;
 
         }
     }
