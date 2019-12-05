@@ -10,17 +10,19 @@ public class Main {
         myLinkedList.add(5);
         myLinkedList.add(7);
 
-        myLinkedList.add(1, 2);
+//        myLinkedList.add(1, 2);
 
 
-       myLinkedList.print();
-////        myLinkedList.add(8);
-////        myLinkedList.add(5);
+//       myLinkedList.print();
+
 ////
 ////        myLinkedList.print();
 
 //        LinkedList linkedList = new LinkedList();
 //        linkedList.add(1);
+//        linkedList.add(2);
+//        linkedList.add(1, 3);
+
     }
 
 

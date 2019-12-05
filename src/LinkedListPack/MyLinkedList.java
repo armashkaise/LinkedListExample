@@ -7,11 +7,13 @@ public class MyLinkedList {
     MyNode first;
     MyNode last;
     int count;
+    ArrayList list = new ArrayList();
 
     public void add(int i) {
         MyNode l = last;
         MyNode f = first;
         MyNode newNode = new MyNode(f, i, l);
+        list.add(newNode);
         if (last != null)
             last.next = newNode;
         last = newNode;
@@ -28,6 +30,7 @@ public class MyLinkedList {
 
             if (j == cell){
                 //***************************************
+
 
 
                 //***************************************
