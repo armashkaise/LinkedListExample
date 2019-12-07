@@ -7,21 +7,19 @@ public class Main {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(1);
         myLinkedList.add(3);
+        myLinkedList.add(4);
         myLinkedList.add(5);
-        myLinkedList.add(7);
+        myLinkedList.add(6);
+        myLinkedList.print();
 
         myLinkedList.add(1, 2);
+        myLinkedList.print();
 
+        myLinkedList.delete(3);
+        myLinkedList.print();
 
-       myLinkedList.print();
-
-////
-////        myLinkedList.print();
-
-       LinkedList linkedList = new LinkedList();
-        linkedList.add(4);
-        linkedList.add(2);
-        linkedList.add(1, 3);
+        myLinkedList.delete();
+        myLinkedList.print();
 
     }
 

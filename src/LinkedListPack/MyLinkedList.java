@@ -1,18 +1,13 @@
 package LinkedListPack;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 public class MyLinkedList {
     private MyNode first;
     private MyNode last;
     private int count;
-    //ArrayList list = new ArrayList();
 
     public void add(int i) {
         MyNode l = last;
         MyNode f = first;
-
         MyNode newNode = new MyNode(null, i, l);
         last = newNode;
         if (l == null){
@@ -21,70 +16,79 @@ public class MyLinkedList {
         else {
             l.next = newNode;
         }
-
         count++;
     }
-
-
 
     public void add(int index, int i) {
         if (index > count-1) {
             System.out.println("Заданый номер ячейки превышает количество имеющихся элементов");
             return;
         }
-
-
-
-
         MyNode f = first;
-
-        for (int j = 0; j < count-1 ; j++) {
-
+        MyNode l = null;
+        MyNode pred= null;
+        for (int j = 0; j < count ; j++) {
             if (j == index){
-                //***************************************
-
-                MyNode l = f;
-                //MyNode f = f.prev;
-                MyNode newNode = new MyNode(l, i, f.prev);
-                f.next = newNode;
+                if (f != null) l = f;
+                if (f.prev != null) pred = f.prev;
+                MyNode newNode = new MyNode(l, i,pred);
+                f.prev = newNode;
+                if (index == 0) {
+                    first = newNode;
+                }
+                else {
+                    pred.next = newNode;
+                }
+                count++;
                 break;
-
-                //***************************************
             }
-            //print();
-
             f = f.next;
-
-            //if (predNod != null) l = predNod;
-
         }
+    }
 
+    public void delete(){
+        first = null;
+    }
+
+    public void delete(int i){
+        MyNode f = first;
+        MyNode prev = null;
+        MyNode next = null;
+        for (int j = 0; j < count; j++){
+            if (f.item == i){
+                if (f.prev != null)
+                    prev = f.prev;
+                if (f.next != null)
+                    next = f.next;
+                MyNode newNode = new MyNode(next.next, next.item, prev);
+                if (newNode != null) prev.next = newNode;
+                count--;
+            }
+            f = f.next;
+        }
     }
 
     public void print(){
-
+        System.out.println("****************************************");
         MyNode f = first;
+        if (first == null){
+            System.out.println("Значения не найдены");
+            return;
+        }
         for (int i = 0; i < count; i++) {
-
                 MyNode predNod = f.prev;
                 MyNode nextNod = f.next;
                 int item = f.item;
-
             if (predNod != null) System.out.print("[" +  predNod.item + "] ");
             else System.out.print("[null] ");
             System.out.print(item);
             if (nextNod != null) System.out.print(" [" +  nextNod.item + "] ");
             else System.out.print(" [null]");
-
             System.out.println();
-
             if (nextNod != null) f = nextNod;
-
         }
+        System.out.println("****************************************");
     }
-
-
-
 }
 
 class MyNode{
