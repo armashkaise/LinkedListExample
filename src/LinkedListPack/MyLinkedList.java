@@ -43,6 +43,7 @@ public class MyLinkedList {
                 break;
             }
             localFirst = localFirst.next;
+
         }
     }
 

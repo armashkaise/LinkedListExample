@@ -21,6 +21,7 @@ public class Main {
         myLinkedList.delete();
         myLinkedList.print();
 
+
     }
 
 
