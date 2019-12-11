@@ -50,62 +50,75 @@ public class MyLinkedList {
         }
         list.add(index, newNode);
 
-        print();
-
-
-
-//        MyNode newNode = new MyNode(null, value,null);
-//        if (list.contains(newNode)) System.out.println("111");
-
-
-       //String[] myNode = list.stream().toArray(String[]::new);
-        //String[] daysArray = days.stream().toArray(String[]::new);
-
-//        MyNode localFirst = first;
-//        MyNode localLast = null;
-//        MyNode predNode= null;
-//        for (int j = 0; j < count ; j++) {
-//            MyNode nod = list.get(j);
-//
-//
-//            if (j == index){
-//                if (localFirst != null) localLast = localFirst;
-//                if (localFirst.prev != null) predNode = localFirst.prev;
-//                MyNode newNode = new MyNode(localLast, value,predNode);
-//                localFirst.prev = newNode;
-//                if (index == 0) {
-//                    first = newNode;
-//                }
-//                else {
-//                    predNode.next = newNode;
-//                }
-//                count++;
-//                break;
-//            }
-//            localFirst = localFirst.next;
-//        }
     }
 
     public void delete(){
         first = null;
     }
 
-    public void delete(int value){
-        MyNode localFirst = first;
-        MyNode prevNode = null;
-        MyNode nextNode = null;
-        for (int j = 0; j < count; j++){
-            if (localFirst.item == value){
-                if (localFirst.prev != null)
-                    prevNode = localFirst.prev;
-                if (localFirst.next != null)
-                    nextNode = localFirst.next;
-                MyNode newNode = new MyNode(nextNode.next, nextNode.item, prevNode);
-                if (newNode != null) prevNode.next = newNode;
-                count--;
-            }
-            localFirst = localFirst.next;
+    public void deleteByElement(int value){
+
+        MyNode node;
+        node = findNodeByElement(value);
+         if (node != null){
+             MyNode prevNode = node.prev;
+             MyNode nextNode = node.next;
+             prevNode.next = nextNode;
+             nextNode.prev = prevNode;
+             if (list.contains(node)){
+                 list.remove(node);
+                 System.out.println("Удаление объекта "+ node.item + " завершено!");
+             }
+         }
+    }
+
+    public void deleteByIndex(int index){
+        if (index < 0 || index >= list.size()){
+            System.out.println("Значение индекса вне диапазона");
+            return;
         }
+
+        MyNode node = findNodeByIndex(index);
+        MyNode predNode = null;
+        if (index == list.size()-1){
+            predNode = list.get(index-1);
+            predNode.next = null;
+        }
+        else if (index == 0){
+            predNode = node.next;
+            predNode.prev = null;
+
+        }
+        else   {
+            predNode = list.get(index-1);
+            MyNode someNode = node.next;
+            predNode.next = someNode;
+            someNode.prev = predNode;
+        }
+        System.out.println("Удаление объекта под индерсом "+ index + " завершено!");
+
+        list.remove(index);
+
+    }
+
+    public void delete(int value){
+
+
+//        MyNode localFirst = first;
+//        MyNode prevNode = null;
+//        MyNode nextNode = null;
+//        for (int j = 0; j < count; j++){
+//            if (localFirst.item == value){
+//                if (localFirst.prev != null)
+//                    prevNode = localFirst.prev;
+//                if (localFirst.next != null)
+//                    nextNode = localFirst.next;
+//                MyNode newNode = new MyNode(nextNode.next, nextNode.item, prevNode);
+//                if (newNode != null) prevNode.next = newNode;
+//                count--;
+//            }
+//            localFirst = localFirst.next;
+//        }
     }
 
     public void print(){
@@ -146,6 +159,38 @@ public class MyLinkedList {
 //            if (nextNod != null) localFirst = nextNod;
 //        }
         System.out.println("****************************************");
+    }
+
+    public void findByElement(int value){
+        //MyLinkedList myLinkedList = new MyLinkedList();
+        MyNode node = findNodeByElement(value);
+
+        if (list.contains(node)){
+
+            System.out.println("Объект " + value + " найден на позиции " + list.indexOf(node));
+            return;
+        }
+
+        System.out.println("Элемент не был найден");
+    }
+
+    public void findByIndex(int index){
+        System.out.println("На позиции " + index + " найдено значение " + findNodeByIndex(index).item);
+    }
+
+    private MyNode findNodeByIndex(int index){
+        return list.get(index);
+    }
+
+    private MyNode findNodeByElement(int value){
+        MyNode node = null;
+        for (MyNode someNode : list){
+            if (value == someNode.item){
+                node = someNode;
+                break;
+            }
+        }
+        return node;
     }
 }
 

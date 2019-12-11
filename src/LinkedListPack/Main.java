@@ -15,20 +15,17 @@ public class Main {
         myLinkedList.print();
 
         myLinkedList.add(1, 2);
-//        myLinkedList.print();
-//
-//        myLinkedList.delete(3);
-        //myLinkedList.print();
-//
-//        myLinkedList.delete();
-//        myLinkedList.print();
+        myLinkedList.print();
 
-//        LinkedList linkedList = new LinkedList();
-//        linkedList.add(1);
-//        linkedList.add(2);
-//        linkedList.add(4);
-//        linkedList.add(5);
-//        linkedList.add(2, 3);
+        myLinkedList.deleteByIndex(1);
+        myLinkedList.print();
+
+        myLinkedList.deleteByElement(4);
+        myLinkedList.print();
+
+        myLinkedList.findByElement(5);
+
+        myLinkedList.findByIndex(1);
 
     }
 
