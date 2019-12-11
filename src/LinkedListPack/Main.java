@@ -12,20 +12,21 @@ public class Main {
         myLinkedList.add(4);
         myLinkedList.add(5);
         myLinkedList.add(6);
+        myLinkedList.add(7);
         myLinkedList.print();
 
-        myLinkedList.add(1, 2);
-        myLinkedList.print();
+        myLinkedList.add(7, 20);
+//        myLinkedList.print();
 
-        myLinkedList.deleteByIndex(1);
-        myLinkedList.print();
+//        myLinkedList.deleteByIndex(1);
+//        myLinkedList.print();
+//
+//        myLinkedList.deleteByElement(4);
+//        myLinkedList.print();
+//
+//        myLinkedList.findByElement(5);
 
-        myLinkedList.deleteByElement(4);
-        myLinkedList.print();
-
-        myLinkedList.findByElement(5);
-
-        myLinkedList.findByIndex(1);
+       // myLinkedList.findByIndex(1);
 
     }
 
