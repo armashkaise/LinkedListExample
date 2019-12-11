@@ -97,27 +97,54 @@ public class MyLinkedList {
         print();
     }
 
-//    public void delete(){
-//        first = null;
-//    }
-//
-//    public void deleteByElement(int value){
-//
-////        MyNode node;
-////        node = findNodeByElement(value);
-////         if (node != null){
-////             MyNode prevNode = node.prev;
-////             MyNode nextNode = node.next;
-////             prevNode.next = nextNode;
-////             nextNode.prev = prevNode;
-////             if (list.contains(node)){
-////                 list.remove(node);
-////                 System.out.println("Удаление объекта "+ node.item + " завершено!");
-////             }
-////         }
-//    }
 
     public void deleteByIndex(int index){
+        if (index > (count-1)) {
+            System.out.println("Заданый индекс ячейки превышает размер максимального индекса списка");
+            return;
+        }
+        if (index < 0) {
+            System.out.println("Заданый индекс ячейки не соответствует списку");
+            return;
+        }
+        int def = count / 2;
+
+        if (index <= def) {
+            MyNode localFirst = first;
+            MyNode predNode = null;
+            MyNode nextNode = null;
+            for (int i = 0; i <= def; i++) {
+                if (i == index) {
+                    break;
+                } else localFirst = localFirst.next;
+            }
+            if (localFirst != null) {
+               predNode = localFirst.prev;
+               nextNode = localFirst.next;
+
+               if (predNode != null) predNode.next = nextNode;
+               if (nextNode != null) nextNode.prev = predNode;
+            }
+        }
+        if (index > def) {
+            MyNode localLast = last;
+            MyNode predNode = null;
+            MyNode nextNode = null;
+            for (int i = count - 1; i >= 0; i--) {
+                if (i == index) {
+                    break;
+                }
+                localLast = localLast.prev;
+            }
+            if (localLast != null) {
+                predNode = localLast.next;
+                nextNode = localLast.prev;
+
+                predNode.next = nextNode;
+                nextNode.prev = predNode;
+            }
+        }
+        print();
 //        if (index < 0 || index >= list.size()){
 //            System.out.println("Значение индекса вне диапазона");
 //            return;

@@ -15,10 +15,10 @@ public class Main {
         myLinkedList.add(7);
         myLinkedList.print();
 
-        myLinkedList.add(7, 20);
+        myLinkedList.add(1, 20);
 //        myLinkedList.print();
 
-//        myLinkedList.deleteByIndex(1);
+        myLinkedList.deleteByIndex(0);
 //        myLinkedList.print();
 //
 //        myLinkedList.deleteByElement(4);
