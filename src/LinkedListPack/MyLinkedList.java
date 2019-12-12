@@ -121,9 +121,15 @@ public class MyLinkedList {
             if (localFirst != null) {
                predNode = localFirst.prev;
                nextNode = localFirst.next;
-
-               if (predNode != null) predNode.next = nextNode;
-               if (nextNode != null) nextNode.prev = predNode;
+                if (index == 0) {
+                    nextNode.prev = null;
+                    first = nextNode;
+                }
+                else {
+                    if (predNode != null) predNode.next = nextNode;
+                    if (nextNode != null) nextNode.prev = predNode;
+                }
+                //count--;
             }
         }
         if (index > def) {
@@ -137,13 +143,23 @@ public class MyLinkedList {
                 localLast = localLast.prev;
             }
             if (localLast != null) {
-                predNode = localLast.next;
-                nextNode = localLast.prev;
+                predNode = localLast.prev;
+                nextNode = localLast.next;
+                if (index == count-1){
+                    predNode.next = null;
+                    last = predNode;
+                }
+                else {
 
-                predNode.next = nextNode;
-                nextNode.prev = predNode;
+
+                    predNode.next = nextNode;
+                    nextNode.prev = predNode;
+                }
+
             }
+
         }
+        count--;
         print();
 //        if (index < 0 || index >= list.size()){
 //            System.out.println("Значение индекса вне диапазона");
