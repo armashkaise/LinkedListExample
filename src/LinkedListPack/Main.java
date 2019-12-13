@@ -16,17 +16,13 @@ public class Main {
         myLinkedList.print();
 
         myLinkedList.add(1, 20);
-//        myLinkedList.print();
+        myLinkedList.print();
 
         myLinkedList.deleteByIndex(0);
-//        myLinkedList.print();
-//
-//        myLinkedList.deleteByElement(4);
-//        myLinkedList.print();
-//
-//        myLinkedList.findByElement(5);
+        myLinkedList.print();
 
-       // myLinkedList.findByIndex(1);
+        myLinkedList.getCountElement();
+
 
     }
 

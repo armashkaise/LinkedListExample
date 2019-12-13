@@ -10,7 +10,6 @@ public class MyLinkedList {
 
     public void add(int value) {
         MyNode localLast = last;
-        //MyNode f = first;
         MyNode newNode = new MyNode(null, value, localLast);
 
         last = newNode;
@@ -20,7 +19,6 @@ public class MyLinkedList {
         else {
             localLast.next = newNode;
         }
-        //list.add(newNode);
         count++;
     }
 
@@ -160,54 +158,12 @@ public class MyLinkedList {
 
         }
         count--;
-        print();
-//        if (index < 0 || index >= list.size()){
-//            System.out.println("Значение индекса вне диапазона");
-//            return;
-//        }
-//
-//        MyNode node = findNodeByIndex(index);
-//        MyNode predNode = null;
-//        if (index == list.size()-1){
-//            predNode = list.get(index-1);
-//            predNode.next = null;
-//        }
-//        else if (index == 0){
-//            predNode = node.next;
-//            predNode.prev = null;
-//
-//        }
-//        else   {
-//            predNode = list.get(index-1);
-//            MyNode someNode = node.next;
-//            predNode.next = someNode;
-//            someNode.prev = predNode;
-//        }
-//        System.out.println("Удаление объекта под индерсом "+ index + " завершено!");
-//
-//        list.remove(index);
-
     }
 
-    public void delete(int value){
-
-
-//        MyNode localFirst = first;
-//        MyNode prevNode = null;
-//        MyNode nextNode = null;
-//        for (int j = 0; j < count; j++){
-//            if (localFirst.item == value){
-//                if (localFirst.prev != null)
-//                    prevNode = localFirst.prev;
-//                if (localFirst.next != null)
-//                    nextNode = localFirst.next;
-//                MyNode newNode = new MyNode(nextNode.next, nextNode.item, prevNode);
-//                if (newNode != null) prevNode.next = newNode;
-//                count--;
-//            }
-//            localFirst = localFirst.next;
-//        }
+    public void getCountElement(){
+        System.out.println("Количество элементов в массиве: " + count);
     }
+
 
     public void print(){
         MyNode localFirst = first;
@@ -231,37 +187,6 @@ public class MyLinkedList {
         System.out.println("****************************************");
     }
 
-    public void findByElement(int value){
-        //MyLinkedList myLinkedList = new MyLinkedList();
-//        MyNode node = findNodeByElement(value);
-//
-//        if (list.contains(node)){
-//
-//            System.out.println("Объект " + value + " найден на позиции " + list.indexOf(node));
-//            return;
-//        }
-//
-//        System.out.println("Элемент не был найден");
-    }
-
-//    public void findByIndex(int index){
-//        System.out.println("На позиции " + index + " найдено значение " + findNodeByIndex(index).item);
-//    }
-
-//    private MyNode findNodeByIndex(int index){
-//     //   return list.get(index);
-//    }
-
-//    private MyNode findNodeByElement(int value){
-////        MyNode node = null;
-////        for (MyNode someNode : list){
-////            if (value == someNode.item){
-////                node = someNode;
-////                break;
-////            }
-////        }
-////        return node;
-//    }
 
 
 }
