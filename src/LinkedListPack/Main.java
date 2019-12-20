@@ -23,6 +23,8 @@ public class Main {
 
         myLinkedList.getCountElement();
 
+        System.out.println(myLinkedList);
+
 
     }
 

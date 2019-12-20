@@ -92,7 +92,7 @@ public class MyLinkedList {
             }
             count++;
         }
-        print();
+        //print();
     }
 
 
@@ -164,6 +164,33 @@ public class MyLinkedList {
         System.out.println("Количество элементов в массиве: " + count);
     }
 
+    @Override
+    public String toString() {
+        MyNode localFirst = first;
+        if (localFirst == null){
+            System.out.println("Значения не найдены");
+           // return;
+        }
+        System.out.println("****************************************");
+        for (int i = 0; i < count; i++) {
+            MyNode predNod = localFirst.prev;
+            MyNode nextNod = localFirst.next;
+            int item = localFirst.item;
+            if (predNod != null) System.out.print("[" +  predNod.item + "] ");
+            else System.out.print("[null] ");
+            System.out.print(item);
+            if (nextNod != null) System.out.print(" [" +  nextNod.item + "] ");
+            else System.out.print(" [null]");
+            System.out.println();
+            if (nextNod != null) localFirst = nextNod;
+        }
+        System.out.println("****************************************");
+        return "MyLinkedList{" +
+                "first=" + first +
+                ", last=" + last +
+                ", count=" + count +
+                '}';
+    }
 
     public void print(){
         MyNode localFirst = first;
