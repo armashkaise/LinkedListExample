@@ -166,30 +166,28 @@ public class MyLinkedList {
 
     @Override
     public String toString() {
+        String result = "";
         MyNode localFirst = first;
         if (localFirst == null){
             System.out.println("Значения не найдены");
            // return;
         }
-        System.out.println("****************************************");
+        //System.out.println("****************************************");
         for (int i = 0; i < count; i++) {
             MyNode predNod = localFirst.prev;
             MyNode nextNod = localFirst.next;
             int item = localFirst.item;
-            if (predNod != null) System.out.print("[" +  predNod.item + "] ");
-            else System.out.print("[null] ");
-            System.out.print(item);
-            if (nextNod != null) System.out.print(" [" +  nextNod.item + "] ");
-            else System.out.print(" [null]");
-            System.out.println();
+            //if (predNod != null) System.out.print("[" +  predNod.item + "] ");
+            //else System.out.print("[null] ");
+//            System.out.print(item);
+            result = result + "[" + i + "]" + item + " ";
+//            if (nextNod != null) System.out.print(" [" +  nextNod.item + "] ");
+//            else System.out.print(" [null]");
+//            System.out.println();
             if (nextNod != null) localFirst = nextNod;
         }
-        System.out.println("****************************************");
-        return "MyLinkedList{" +
-                "first=" + first +
-                ", last=" + last +
-                ", count=" + count +
-                '}';
+        //System.out.println("****************************************");
+        return result;
     }
 
     public void print(){
